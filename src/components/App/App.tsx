@@ -12,6 +12,7 @@ function App() {
   const [todoItems, setTodoItems] = useState<Item[]>([]);
   const itemLeft = todoItems.filter((x) => !x.completed).length;
   const [state, setState] = useState<State>("All");
+  const [markDoneState, setMarkDoneState] = useState<boolean>(false);
 
   useEffect(() => {
     const storedTodos = JSON.parse(
@@ -56,14 +57,16 @@ function App() {
     }
   }
 
-  function handleItemDeleted(id: string) {
+  function handleItemDeleted(id: string) {    
     const filtered = todoItems.filter((x) => x.id !== id);
     setTodoItems([...filtered]);
   }
 
   function handleMarkAllDone() {
+    setMarkDoneState(!markDoneState);
+    
     for (let i = 0; i < todoItems.length; i++) {
-      todoItems[i].completed = true;
+      todoItems[i].completed = !markDoneState;
     }
 
     setTodoItems([...todoItems]);
