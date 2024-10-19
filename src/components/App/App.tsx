@@ -10,9 +10,13 @@ const LOCAL_STORAGE_KEY = "TODO_APP";
 
 function App() {
   const [todoItems, setTodoItems] = useState<Item[]>([]);
-  const itemLeft = todoItems.filter((x) => !x.completed).length;
   const [state, setState] = useState<State>("All");
   const [markDoneState, setMarkDoneState] = useState<boolean>(false);
+
+  const itemLeft = todoItems.filter((x) => !x.completed).length;
+  const unmark =
+    todoItems.filter((x) => x.completed).length == todoItems.length &&
+    todoItems.length > 0;
 
   useEffect(() => {
     const storedTodos = JSON.parse(
@@ -57,14 +61,14 @@ function App() {
     }
   }
 
-  function handleItemDeleted(id: string) {    
+  function handleItemDeleted(id: string) {
     const filtered = todoItems.filter((x) => x.id !== id);
     setTodoItems([...filtered]);
   }
 
   function handleMarkAllDone() {
     setMarkDoneState(!markDoneState);
-    
+
     for (let i = 0; i < todoItems.length; i++) {
       todoItems[i].completed = !markDoneState;
     }
@@ -86,6 +90,7 @@ function App() {
         />
         <ActionBar
           state={state}
+          unmark={unmark}
           onStateChanged={(state) => setState(state)}
           onClearCompleted={handleClearCompleted}
           onMarkDone={handleMarkAllDone}

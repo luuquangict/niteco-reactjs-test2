@@ -3,6 +3,7 @@ import { State } from "../../models";
 type ActionBarProps = {
   itemLeft: number;
   state: State;
+  unmark?: boolean;
   onStateChanged: (state: State) => void;
   onClearCompleted: () => void;
   onMarkDone: () => void;
@@ -11,6 +12,7 @@ type ActionBarProps = {
 export function ActionBar({
   itemLeft,
   state,
+  unmark,
   onStateChanged,
   onMarkDone,
   onClearCompleted,
@@ -40,7 +42,7 @@ export function ActionBar({
       </button>
 
       <button className="btn" onClick={onMarkDone}>
-        Mark all done
+        {unmark ? "Unmark all" : "Mark all complete"}
       </button>
 
       {state !== "Active" && (
