@@ -17,7 +17,12 @@ export function TodoItem({
         checked={!!item.completed}
         onChange={() => {}}
       />
-      <label htmlFor={`chk-item-${item.id}`}>{item.title}</label>
+      <label
+        className={item.completed ? "item-completed" : ""}
+        htmlFor={`chk-item-${item.id}`}
+      >
+        {item.title}
+      </label>
     </li>
   );
 }

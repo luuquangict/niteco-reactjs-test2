@@ -15,7 +15,9 @@ export function ActionBar({
 }: ActionBarProps) {
   return (
     <div className="action-bar">
-      <label className="item-left-panel">{itemLeft} item(s) left</label>
+      <label className="item-left-panel">
+        {itemLeft} item{itemLeft > 1 ? "s" : ""} left
+      </label>
       <button
         onClick={() => onStateChanged("All")}
         className={state === "All" ? "btn btn-active" : "btn"}

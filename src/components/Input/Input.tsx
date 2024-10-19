@@ -15,7 +15,7 @@ export function Input({ placeholder, onEnter }: InputProps) {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      <input placeholder={placeholder}></input>
+      <input className="input" placeholder={placeholder}></input>
     </form>
   );
 }

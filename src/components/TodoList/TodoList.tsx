@@ -12,6 +12,8 @@ export function TodoList({
   stateFilter,
   onItemStatusChanged,
 }: TodoListProps) {
+  console.log("Render TODO-LIST");
+
   function filterItemByState(items: Item[], stateFilter: State): Item[] {
     switch (stateFilter) {
       case "Active": {
