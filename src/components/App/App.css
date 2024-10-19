@@ -4,7 +4,7 @@ h1 {
 
 .container {
   margin: 0 auto;
-  width: 500px;
+  width: 800px;
 }
 
 .input {
@@ -24,6 +24,7 @@ li {
   border: 1px solid #ccc;
   padding: 10px 0;
   margin-top: 3px;
+  display: flex;
 }
 
 li label {
@@ -38,6 +39,24 @@ li label {
   border: 1px solid #ccc;
   cursor: pointer;
   border-radius: 4px;
+}
+
+.btn-delete {  
+  border: 0px;
+  cursor: pointer;
+  background-color: coral;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.item-content {
+  flex-grow: 1;
+}
+
+.btn-delete:hover {
+  background-color: cadetblue;
 }
 
 .btn:hover {
@@ -59,7 +78,7 @@ li label {
 .item-left-panel {
   margin-right: 8px;
   height: 30px;
-  vertical-align: middle;  
+  vertical-align: middle;
 }
 
 .item-completed {

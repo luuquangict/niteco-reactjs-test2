@@ -5,12 +5,14 @@ export type TodoListProps = {
   items: Item[];
   stateFilter: State;
   onItemStatusChanged: (id: string, status: boolean) => void;
+  onItemDeleted: (id: string) => void;
 };
 
 export function TodoList({
   items,
   stateFilter,
   onItemStatusChanged,
+  onItemDeleted,
 }: TodoListProps) {
   console.log("Render TODO-LIST");
 
@@ -35,6 +37,7 @@ export function TodoList({
         <TodoItem
           key={x.id}
           item={x}
+          onDeleted={onItemDeleted}
           onStatusChanged={(status) => onItemStatusChanged(x.id, status)}
         />
       ))}

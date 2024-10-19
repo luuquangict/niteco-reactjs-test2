@@ -56,6 +56,11 @@ function App() {
     }
   }
 
+  function handleItemDeleted(id: string) {
+    const filtered = todoItems.filter((x) => x.id !== id);
+    setTodoItems([...filtered]);
+  }
+
   function handleMarkAllDone() {
     for (let i = 0; i < todoItems.length; i++) {
       todoItems[i].completed = true;
@@ -67,18 +72,20 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>Todo App - luuquangict</h1>
-        <button onClick={handleMarkAllDone}>Mark all done</button>
+        <h1>Todo App - quang.nguyen3</h1>
+
         <Input onEnter={handleInputEnter} placeholder="Enter your text"></Input>
         <TodoList
           stateFilter={state}
           items={todoItems}
           onItemStatusChanged={handleItemStatusChanged}
+          onItemDeleted={handleItemDeleted}
         />
         <ActionBar
           state={state}
           onStateChanged={(state) => setState(state)}
           onClearCompleted={handleClearCompleted}
+          onMarkDone={handleMarkAllDone}
           itemLeft={itemLeft}
         />
       </div>

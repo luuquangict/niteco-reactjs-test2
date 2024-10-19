@@ -5,12 +5,14 @@ type ActionBarProps = {
   state: State;
   onStateChanged: (state: State) => void;
   onClearCompleted: () => void;
+  onMarkDone: () => void;
 };
 
 export function ActionBar({
   itemLeft,
   state,
   onStateChanged,
+  onMarkDone,
   onClearCompleted,
 }: ActionBarProps) {
   return (
@@ -36,6 +38,11 @@ export function ActionBar({
       >
         Completed
       </button>
+
+      <button className="btn" onClick={onMarkDone}>
+        Mark all done
+      </button>
+
       {state !== "Active" && (
         <button onClick={onClearCompleted} className="btn">
           Clear completed
