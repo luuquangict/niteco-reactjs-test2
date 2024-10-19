@@ -8,8 +8,8 @@ export function Input({ placeholder, onEnter }: InputProps) {
     e.preventDefault();
     const inputElement = e.currentTarget.querySelector("input");
     if (inputElement && inputElement.value.trim() !== "") {
-      onEnter(inputElement.value); // Gọi onEnter với giá trị input
-      inputElement.value = ""; // Xóa input sau khi submit
+      onEnter(inputElement.value);
+      inputElement.value = "";
     }
   }
 

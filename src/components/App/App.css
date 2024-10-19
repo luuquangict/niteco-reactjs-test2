@@ -20,3 +20,35 @@ li label {
   cursor: pointer;
   user-select: unset;
 }
+
+.btn {
+  min-width: 80px;
+  height: 30px;
+  background-color: bisque;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: blanchedalmond;
+}
+
+.btn + .btn {
+  margin-left: 8px;
+}
+
+.btn-active {
+  border-color: red;
+}
+
+.action-bar {
+  margin-top: 8px;
+}
+
+.item-left-panel {
+  margin-right: 8px;
+  height: 30px;
+  vertical-align: middle;
+  padding-left: 10px;
+}

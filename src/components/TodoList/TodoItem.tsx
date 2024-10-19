@@ -15,7 +15,7 @@ export function TodoItem({
         name={`chk-item-${item.id}`}
         type="checkbox"
         checked={!!item.completed}
-        onChange={() => onStatusChanged(!item.completed)}
+        onChange={() => {}}
       />
       <label htmlFor={`chk-item-${item.id}`}>{item.title}</label>
     </li>
